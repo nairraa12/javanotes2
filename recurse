@@ -124,3 +124,98 @@ public class LastName_Problem3 {
         }
     }
 }
+
+
+//explanation 
+// 
+# Java Recursion Laboratory Activity
+
+## Problem 1 — Sum of Digits
+
+The `sumOfDigits(int number)` method calculates the sum of all the digits of a number using recursion.
+
+The base case is `if (number == 0)`, which stops the recursion when there are no more digits to process and returns `0`.
+
+For the recursive case, `number % 10` is used to get the last digit of the number, while `number / 10` removes the last digit. The method then calls itself using the remaining number.
+
+For example, when `sumOfDigits(1234)` is called, `1234 % 10` gives `4`, and `1234 / 10` gives `123`. The method continues until the number becomes `0`.
+
+The calculation becomes:
+
+`4 + 3 + 2 + 1 + 0 = 10`
+
+The activity requires this recursive approach without using loops or converting the number into a String.
+
+---
+
+## Problem 2 — Greatest Common Divisor (GCD)
+
+The `gcd(int a, int b)` method finds the greatest common divisor of two numbers using the recursive Euclidean algorithm.
+
+The base case is `if (b == 0)`. When `b` becomes `0`, the value of `a` is the GCD, so the method returns `a`.
+
+For the recursive case, `gcd(b, a % b)` is used to make the problem smaller by calculating the remainder.
+
+For example, when finding the GCD of `48` and `18`:
+
+1. `48 % 18 = 12`, so the next call is `gcd(18, 12)`.
+2. `18 % 12 = 6`, so the next call is `gcd(12, 6)`.
+3. `12 % 6 = 0`, so the next call is `gcd(6, 0)`.
+4. Since the second number is now `0`, the method returns `6`.
+
+The `main()` method also checks if either input is negative and handles the case where both inputs are `0`, as required by the activity.
+
+---
+
+## Problem 3 — Recursive Array Analysis
+
+The third problem uses three separate recursive methods to analyze an array: `arraySum()`, `findMaximum()`, and `countEven()`.
+
+### 1. arraySum()
+
+The `arraySum()` method adds all the elements of the array.
+
+Its base case occurs when `index == values.length`, meaning the end of the array has been reached. At this point, the method returns `0`.
+
+Otherwise, it adds the current element to the result of `arraySum(values, index + 1)`. The index increases by one in every recursive call until all elements have been processed.
+
+### 2. findMaximum()
+
+The `findMaximum()` method finds the largest element in the array.
+
+Its base case occurs when `index == values.length - 1`, meaning the last element has been reached. The method returns that element.
+
+For the recursive case, the method finds the maximum value of the remaining elements and compares it with the current element. The larger value is returned.
+
+### 3. countEven()
+
+The `countEven()` method counts the even numbers in the array.
+
+It checks whether the current element is even using `values[index] % 2 == 0`.
+
+If the number is even, it adds `1` to the count and continues recursively. If the number is odd, it simply continues to the next element.
+
+The base case occurs when `index == values.length`, meaning there are no more elements to check. The method then returns `0`.
+
+For the given array `{12, 7, 4, 19, 6, 10}`, the results are:
+
+- Array sum: `58`
+- Largest element: `19`
+- Number of even elements: `4`
+
+These three calculations are performed using recursion.
+
+---
+
+## Overall Explanation of Recursion
+
+Recursion is a programming technique in which a method calls itself to solve a smaller version of the same problem.
+
+Every recursive method needs a **base case** and a **recursive case**. The base case tells the method when to stop, while the recursive case calls the method again with a smaller or simpler problem.
+
+In Problem 1, the number becomes smaller by removing its last digit. In Problem 2, the numbers become smaller by using the remainder. In Problem 3, the index moves forward through the array.
+
+This process continues until the base case is reached and the recursive calls stop.
+
+The laboratory activity emphasizes understanding the base case, recursive case, parameters, return values, and how recursive calls work through the call stack.
+

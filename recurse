@@ -252,3 +252,87 @@ This process continues until the base case is reached and the recursive calls st
 
 The laboratory activity emphasizes understanding the base case, recursive case, parameters, return values, and how recursive calls work through the call stack.
 
+
+
+import java.util.Scanner;
+
+public class LastName_Problem3 {
+
+    public static int arraySum(int[] values, int index) {
+
+        // Base case
+        if (index == values.length) {
+            return 0;
+        }
+
+        // Recursive case
+        return values[index] + arraySum(values, index + 1);
+    }
+
+    public static int findMaximum(int[] values, int index) {
+
+        // Base case
+        if (index == values.length - 1) {
+            return values[index];
+        }
+
+        // Recursive case
+        int max = findMaximum(values, index + 1);
+
+        if (values[index] > max) {
+            return values[index];
+        }
+        else {
+            return max;
+        }
+    }
+
+    public static int countEven(int[] values, int index) {
+
+        // Base case
+        if (index == values.length) {
+            return 0;
+        }
+
+        // Recursive case
+        if (values[index] % 2 == 0) {
+            return 1 + countEven(values, index + 1);
+        }
+        else {
+            return countEven(values, index + 1);
+        }
+    }
+
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter the number of elements: ");
+        int size = input.nextInt();
+
+        int[] values = new int[size];
+
+        System.out.println("Enter " + size + " elements:");
+
+        for (int i = 0; i < size; i++) {
+            values[i] = input.nextInt();
+        }
+
+        if (values.length == 0) {
+            System.out.println("Array is empty.");
+        }
+        else {
+            int sum = arraySum(values, 0);
+            int maximum = findMaximum(values, 0);
+            int evenCount = countEven(values, 0);
+
+            System.out.println("Array Sum: " + sum);
+            System.out.println("Largest Element: " + maximum);
+            System.out.println("Number of Even Elements: " + evenCount);
+        }
+
+        input.close();
+    }
+}
+
+

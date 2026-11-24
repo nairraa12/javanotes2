@@ -1,0 +1,86 @@
+
+class PrintAccount {
+
+    // Private attributes
+    private String studentName;
+    private int credits;
+
+    // Constructor
+    public PrintAccount(String studentName, int credits) {
+        this.studentName = studentName;
+
+        if (credits < 0) {
+            this.credits = 0;
+        } else {
+            this.credits = credits;
+        }
+    }
+
+    // Add credits
+    public boolean addCredits(int amount) {
+
+        if (amount <= 0) {
+            return false;
+        }
+
+        this.credits += amount;
+        return true;
+    }
+
+    // Print pages
+    public boolean printPages(int pages) {
+
+        if (pages <= 0 || pages > this.credits) {
+            return false;
+        }
+
+        this.credits -= pages;
+        return true;
+    }
+
+    // Getter for credits
+    public int getCredits() {
+        return this.credits;
+    }
+
+    // Getter for student name
+    public String getStudentName() {
+        return this.studentName;
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        // Create two independent objects
+        PrintAccount mia = new PrintAccount("Mia", 10);
+        PrintAccount luis = new PrintAccount("Luis", -4);
+
+        // Display starting credits
+        System.out.println("Starting Credits:");
+        System.out.println(mia.getStudentName() + ": " + mia.getCredits());
+        System.out.println(luis.getStudentName() + ": " + luis.getCredits());
+
+        // Test 1: Mia prints 4 pages
+        System.out.println("\nMia prints 4 pages: " + mia.printPages(4));
+        System.out.println("Mia's credits: " + mia.getCredits());
+
+        // Test 2: Mia tries to print 7 pages
+        System.out.println("\nMia prints 7 pages: " + mia.printPages(7));
+        System.out.println("Mia's credits: " + mia.getCredits());
+
+        // Test 3: Mia tries to add negative credits
+        System.out.println("\nMia adds -3 credits: " + mia.addCredits(-3));
+        System.out.println("Mia's credits: " + mia.getCredits());
+
+        // Test 4: Mia adds 4 credits
+        System.out.println("\nMia adds 4 credits: " + mia.addCredits(4));
+        System.out.println("Mia's credits: " + mia.getCredits());
+
+        // Check Luis's credits again
+        System.out.println("\nFinal Credits:");
+        System.out.println(mia.getStudentName() + ": " + mia.getCredits());
+        System.out.println(luis.getStudentName() + ": " + luis.getCredits());
+    }
+}

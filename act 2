@@ -1,4 +1,4 @@
-
+kiss
 public class Main {
 
     public static void main(String[] args) {
@@ -103,9 +103,39 @@ public class Main {
     }
 }
 
-// Test 1: Create Mia's and Luis's accounts
-PrintAccount mia = new PrintAccount("Mia", 10);
-PrintAccount luis = new PrintAccount("Luis", -4);
 
-System.out.println("Mia: " + mia.getCredits()
-        + ", Luis: " + luis.getCredits());
+public class Main {
+
+    public static void main(String[] args) {
+
+        // Create Mia's and Luis's accounts
+        PrintAccount mia = new PrintAccount("Mia", 10);
+        PrintAccount luis = new PrintAccount("Luis", -4);
+
+        // Test 1: Starting credits
+        System.out.println("Mia: " + mia.getCredits()
+                + ", Luis: " + luis.getCredits());
+
+        // Test 2: Mia prints 4 pages
+        boolean result1 = mia.printPages(4);
+
+        System.out.println(result1 + "; Mia: " + mia.getCredits());
+
+        // Test 3: Mia tries to print 7 pages
+        boolean result2 = mia.printPages(7);
+
+        System.out.println(result2 + "; Mia: " + mia.getCredits());
+
+        // Test 4: Mia tries to add -3 credits
+        boolean result3 = mia.addCredits(-3);
+
+        System.out.println(result3 + "; Mia: " + mia.getCredits());
+
+        // Test 5: Mia adds 4 credits
+        boolean result4 = mia.addCredits(4);
+
+        System.out.println(result4 + "; Mia: " + mia.getCredits()
+                + ", Luis: " + luis.getCredits());
+    }
+}
+

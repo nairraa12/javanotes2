@@ -1,0 +1,55 @@
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        // Create two independent objects
+        LabGrade ana = new LabGrade("Ana", 80, 90);
+        LabGrade ben = new LabGrade("Ben", 101, 85);
+
+        // Test 1: Display Ana's initial grade
+        System.out.println("Initial Records:");
+        System.out.println(ana.getStudentName() + "'s Final Grade: "
+                + ana.getFinalGrade());
+        System.out.println("Passing: " + ana.isPassing());
+
+        // Test 2: Display Ben's initial grade
+        System.out.println("\n" + ben.getStudentName() + "'s Final Grade: "
+                + ben.getFinalGrade());
+        System.out.println("Passing: " + ben.isPassing());
+
+        // Test 3: Update Ana's scores to 95 and 101
+        System.out.println("\nUpdating Ana's scores to 95 and 101:");
+        System.out.println("Update successful: "
+                + ana.updateScores(95, 101));
+        System.out.println("Ana's Final Grade: "
+                + ana.getFinalGrade());
+
+        // Test 4: Update Ana's scores to 74 and 75
+        System.out.println("\nUpdating Ana's scores to 74 and 75:");
+        System.out.println("Update successful: "
+                + ana.updateScores(74, 75));
+        System.out.println("Ana's Final Grade: "
+                + ana.getFinalGrade());
+        System.out.println("Passing: " + ana.isPassing());
+
+        // Test 5: Update Ana's scores to 75 and 75
+        System.out.println("\nUpdating Ana's scores to 75 and 75:");
+        System.out.println("Update successful: "
+                + ana.updateScores(75, 75));
+        System.out.println("Ana's Final Grade: "
+                + ana.getFinalGrade());
+        System.out.println("Passing: " + ana.isPassing());
+
+        // Test 6: Check Ben's record again
+        System.out.println("\nChecking Ben's Record Again:");
+        System.out.println("Ben's Final Grade: "
+                + ben.getFinalGrade());
+        System.out.println("Passing: " + ben.isPassing());
+
+        // Activity 2 Question 1:
+        // Both scores must be validated before assigning either one.
+        // This prevents one score from being updated when the other
+        // score is invalid, keeping the record consistent.
+    }
+}

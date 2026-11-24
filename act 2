@@ -102,3 +102,10 @@ public class Main {
                 + ", Ben: " + ben.getBalance());
     }
 }
+
+// Test 1: Create Mia's and Luis's accounts
+PrintAccount mia = new PrintAccount("Mia", 10);
+PrintAccount luis = new PrintAccount("Luis", -4);
+
+System.out.println("Mia: " + mia.getCredits()
+        + ", Luis: " + luis.getCredits());

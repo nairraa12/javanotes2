@@ -63,3 +63,42 @@ public class Main {
         }
     }
 }
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        System.out.println("===== ENGINEERING DISTANCE AND SLOPE ANALYZER =====");
+
+        // Create three EngineeringPoint objects
+        EngineeringPoint pointA = new EngineeringPoint(3, 4);
+        EngineeringPoint pointB = new EngineeringPoint(9, 12);
+        EngineeringPoint pointC = new EngineeringPoint(6, 8);
+
+        // Display coordinates
+        System.out.printf("%nPoint A: (%.2f, %.2f)%n",
+                pointA.getX(), pointA.getY());
+
+        System.out.printf("Point B: (%.2f, %.2f)%n",
+                pointB.getX(), pointB.getY());
+
+        // Calculate distance and slope between Point A and Point B
+        double distance = pointA.calculateDistance(pointB);
+        double slope = pointA.calculateSlope(pointB);
+
+        System.out.printf("%nDistance: %.2f units%n", distance);
+
+        if (Double.isNaN(slope)) {
+            System.out.println("Slope: Undefined");
+        } else {
+            System.out.printf("Slope: %.2f%n", slope);
+        }
+
+        // Calculate other pairs to satisfy the requirements
+        pointA.calculateDistance(pointC);
+        pointA.calculateSlope(pointC);
+
+        pointB.calculateDistance(pointC);
+        pointB.calculateSlope(pointC);
+    }
+}

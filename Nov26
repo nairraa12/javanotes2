@@ -82,23 +82,25 @@ public class Main {
         System.out.printf("Point B: (%.2f, %.2f)%n",
                 pointB.getX(), pointB.getY());
 
-        // Calculate distance and slope between Point A and Point B
-        double distance = pointA.calculateDistance(pointB);
-        double slope = pointA.calculateSlope(pointB);
+        // Calculate distance and slope between A and B
+        double distanceAB = pointA.calculateDistance(pointB);
+        double slopeAB = pointA.calculateSlope(pointB);
 
-        System.out.printf("%nDistance: %.2f units%n", distance);
-
-        if (Double.isNaN(slope)) {
+        System.out.printf("%nDistance: %.2f units%n", distanceAB);
+        
+        if (Double.isNaN(slopeAB)) {
             System.out.println("Slope: Undefined");
         } else {
-            System.out.printf("Slope: %.2f%n", slope);
+            System.out.printf("Slope: %.2f%n", slopeAB);
         }
 
-        // Calculate other pairs to satisfy the requirements
-        pointA.calculateDistance(pointC);
-        pointA.calculateSlope(pointC);
+        // Calculate distance and slope between A and C
+        double distanceAC = pointA.calculateDistance(pointC);
+        double slopeAC = pointA.calculateSlope(pointC);
 
-        pointB.calculateDistance(pointC);
-        pointB.calculateSlope(pointC);
+        // Calculate distance and slope between B and C
+        double distanceBC = pointB.calculateDistance(pointC);
+        double slopeBC = pointB.calculateSlope(pointC);
+
     }
 }
